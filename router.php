@@ -7,30 +7,29 @@ if (in_array( $_SERVER["REQUEST_URI"], [ '/index.html', '/', '' ] )) {
     require( './index.html');
     die;
 }
-if (in_array( $_SERVER["REQUEST_URI"], [ '/books.html', '/', '' ] )) {
+else if (in_array( $_SERVER["REQUEST_URI"], [ '/books.html', '/', '' ] )) {
     require( './books.html');
     die;
 }
-if(preg_match('/\.(?:css)$/', $_SERVER["REQUEST_URI"])) {
+else if(preg_match('/\.(?:css)$/', $_SERVER["REQUEST_URI"])) {
     header("Content-Type: text/css");
     readfile($_SERVER["SCRIPT_FILENAME"]);
     
 }
-if(preg_match('/\.(?:js)$/', $_SERVER["REQUEST_URI"])) {
+else if(preg_match('/\.(?:js)$/', $_SERVER["REQUEST_URI"])) {
     header("Content-Type: text/js");
     readfile($_SERVER["SCRIPT_FILENAME"]);
 }
-if(preg_match('/\.(?:ttf)$/', $_SERVER["REQUEST_URI"])) {
+else if(preg_match('/\.(?:ttf)$/', $_SERVER["REQUEST_URI"])) {
     header("Content-Type: text/ttf");
     readfile($_SERVER["SCRIPT_FILENAME"]);
 
 }
-if(preg_match('/\.(?:woff2)$/', $_SERVER["REQUEST_URI"])) {
+else if(preg_match('/\.(?:woff2)$/', $_SERVER["REQUEST_URI"])) {
     header("Content-Type: text/woff2");
     readfile($_SERVER["SCRIPT_FILENAME"]);
 }
-
-if (preg_match('/\/(img+)\/([^\/]+)/', $_SERVER["REQUEST_URI"], $matches)){
+else if (preg_match('/\/(img+)\/([^\/]+)/', $_SERVER["REQUEST_URI"], $matches)){
     return FALSE;
 }elseif (preg_match('/\/([^\/]+)\/([^\/]+)/', $_SERVER["REQUEST_URI"], $matches)) {
     $_GET['resource_type'] = $matches[1];
